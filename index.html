@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CricX TV Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #111, #222);
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1001;
+    }
+
+    .menu-icon {
+      font-size: 26px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #00ffcc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideIn 1s ease;
+    }
+
+    .title i {
+      color: #00ffcc;
+      font-size: 24px;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #1c1c1c;
+      padding-top: 70px;
+      transition: 0.4s ease;
+      z-index: 1000;
+      box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #00ffcc;
+      color: #000;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
+    }
+
+    function closeSidebar() {
+      document.querySelector('.sidebar').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="menu-icon" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="title">
+      <i class="fas fa-tv"></i> CricX TV Admin
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <a href="https://your-website.com/control" target="_blank"><i class="fas fa-sliders-h"></i> Control</a>
+    <a href="#"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+  </div>
+
+  <div class="overlay" onclick="closeSidebar()"></div>
+
+  <iframe src="https://www.appcreator24.com/intra/intra.php?idioma=en&idsesion=b1elvxicgq34tsrnzhm6o5y7ap8j0u2wkf9d&pag=21&idapp=3558447"></iframe>
+
+</body>
+</html>
